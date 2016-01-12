@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>bens</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta content="email=no" name="format-detection" />
+    <meta content="telephone=no" name="format-detection" />
+
+    <link rel="stylesheet" href="css/all.css" type="text/css" />
+    <link rel="stylesheet" href="css/index.css" type="text/css" />
+    <link rel="stylesheet" href="font/iconfont.css" type="text/css" />
+
+
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/index.js"></script>
+    <script src="http://192.168.0.104:8333/target/target-script-min.js#anonymous"></script>
+
+    <script>
+        $(document).ready(function(){
+            var data = {
+                user:"bens",
+                pass:"123"
+            };
+            data = JSON.stringify(data);
+
+
+            $.ajax({
+                type:"post",
+                cache:false,
+                url:"/login?id=123&aa=222",
+                data:data,
+//                contentType:"text/plain",
+                contentType:'application/json',
+                dataType:"json",
+                timeout:5000,
+                success:function(rs){
+                    console.log(rs);
+
+                    getList(rs.data.token);
+                },
+                error:function(e){
+                    console.log(e);
+                }
+            });
+
+        });
+
+
+        var getList = function(token){
+            var data = {
+                token:token
+            };
+            data = JSON.stringify(data);
+
+
+            $.ajax({
+                type:"post",
+                cache:false,
+                url:"/memberList",
+                data:data,
+//                contentType:"text/plain",
+                contentType:'application/json',
+                dataType:"json",
+                timeout:5000,
+                success:function(rs){
+                    console.log(rs);
+
+                },
+                error:function(e){
+                    console.log(e);
+                }
+            });
+        };
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+<!--引导页-->
+<div class="page welcome" id="welcome">
+    TODO loading...
+    click in
+</div>
+
+<!--登陆页-->
+<div class="page login" id="login" style="display: none;">
+    <div class="movie"></div>
+    <div class="login_text">
+        <p>您好!</p>
+        <div>欢迎来到Bens个人系统</div>
+    </div>
+    <div class="login_btn_main radius">
+        <span class="_login_btn_ radius">登 陆</span>
+        <div class="login_main_body">
+            <label class="box_h center_s border_box _rows _rows1">
+                <span class="iconfont">&#xe607;</span>
+                <input class="boxflex1" type="text" id="name" placeholder="请输入用户名" />
+            </label>
+            <label class="box_h center_s border_box _rows _rows2">
+                <span class="iconfont">&#xe648;</span>
+                <input class="boxflex1" type="password" id="pass" placeholder="请输入密码">
+            </label>
+            <div class="login_submit radius _rows _rows3">提 交</div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+</body>
+</html>
