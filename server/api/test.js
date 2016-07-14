@@ -16,9 +16,13 @@ var mysql = require("./../mysql_set"),
 	res = require("./../response_json");
 
 
-var test = function(response){
+var test = function(request,response){
+
+	//res.test(response,{a:"hello world"});
+
 	mysql.connect();
-	mysql.conn.query('SELECT * from user', function(err, rows, fields) {
+
+	mysql.conn.query('SELECT * from users', function(err, rows, fields) {
 		if (err){
 			res.error(response,err);
 			return;

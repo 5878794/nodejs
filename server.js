@@ -33,7 +33,7 @@ function spawn(server) {
 
 function main() {
 
-	spawn('/Users/beens/code/codes/nodejs/server/app.js'); //要守护的进程文件
+	spawn('/Users/beens/code/github/nodejs/server/app.js'); //要守护的进程文件
 
 	process.on('SIGTERM', function () {
 

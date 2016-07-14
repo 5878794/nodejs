@@ -14,69 +14,70 @@
 
 
     <script src="js/jquery-2.1.1.min.js"></script>
-    <script src="js/lib.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/video_inline.js"></script>
+    <!--<script src="js/lib.js"></script>-->
+    <!--<script src="js/index.js"></script>-->
 
 
     <script>
-        $(document).ready(function(){
-            var data = {
-                user:"bens",
-                pass:"123"
-            };
-            data = JSON.stringify(data);
-
-
-            $.ajax({
-                type:"post",
-                cache:false,
-                url:"/login?id=123&aa=222",
-                data:data,
-//                contentType:"text/plain",
-                contentType:'application/json',
-                dataType:"json",
-                timeout:5000,
-                success:function(rs){
-                    console.log(rs);
-
-                    getList(rs.data.token);
-                },
-                error:function(e){
-                    console.log(e);
-                }
-            });
-
-        });
-
-
-        var getList = function(token){
-            var data = {
-                token:token
-            };
-            data = JSON.stringify(data);
-
-
-            $.ajax({
-                type:"post",
-                cache:false,
-                url:"/memberList",
-                data:data,
-//                contentType:"text/plain",
-                contentType:'application/json',
-                dataType:"json",
-                timeout:5000,
-                success:function(rs){
-                    console.log(rs);
-
-                },
-                error:function(e){
-                    console.log(e);
-                }
-            });
-        };
-
-
-
+//        $(document).ready(function(){
+//            var data = {
+//                user:"bens",
+//                pass:"123"
+//            };
+//            data = JSON.stringify(data);
+//
+//
+//            $.ajax({
+//                type:"post",
+//                cache:false,
+//                url:"/login?id=123&aa=222",
+//                data:data,
+////                contentType:"text/plain",
+//                contentType:'application/json',
+//                dataType:"json",
+//                timeout:5000,
+//                success:function(rs){
+//                    console.log(rs);
+//
+//                    getList(rs.data.token);
+//                },
+//                error:function(e){
+//                    console.log(e);
+//                }
+//            });
+//
+//        });
+//
+//
+//        var getList = function(token){
+//            var data = {
+//                token:token
+//            };
+//            data = JSON.stringify(data);
+//
+//
+//            $.ajax({
+//                type:"post",
+//                cache:false,
+//                url:"/memberList",
+//                data:data,
+////                contentType:"text/plain",
+//                contentType:'application/json',
+//                dataType:"json",
+//                timeout:5000,
+//                success:function(rs){
+//                    console.log(rs);
+//
+//                },
+//                error:function(e){
+//                    console.log(e);
+//                }
+//            });
+//        };
+//
+//
+//
 
 
 
@@ -89,17 +90,18 @@
 <body>
 
 <!--引导页-->
-<div class="page welcome" id="welcome">
+<div class="page welcome" id="welcome" style="display: none;">
     TODO loading...
     click in
 </div>
 
 <!--登陆页-->
-<div class="page login" id="login" style="display: none;">
+<div class="page login" id="login" >
     <div class="movie"></div>
     <div class="login_text">
         <p>您好!</p>
         <div>欢迎来到Bens个人系统</div>
+        <video src="mp4/fll.mp4" autoplay webkit-playsinline></video>
     </div>
     <div class="login_btn_main radius">
         <span class="_login_btn_ radius">登 陆</span>

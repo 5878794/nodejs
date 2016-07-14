@@ -9,7 +9,7 @@ var http = require('http'),        // Http服务器API
 
 
 var server = new http.Server(),    // 创建新的HTTP服务器
-	wwwDir = "/Users/beens/code/codes/nodejs/www/";
+	wwwDir = "/Users/beens/code/github/nodejs/www/";
 
 
 var port = 8000;

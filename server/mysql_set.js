@@ -11,7 +11,7 @@
  */
 
 
-// var mysql = require('mysql');
+ var mysql = require('mysql');
 
 var conn;
 
@@ -21,9 +21,9 @@ var conn;
 module.exports.connect = function(){
 	conn = mysql.createConnection({
 		host: 'localhost',
-		user: 'root',
+		user: 'bens',
 		password: 'xf771026aa',
-		database:'bx',
+		database:'chenhong',
 		port: 3306
 	});
 	conn.connect();

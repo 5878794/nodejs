@@ -98,7 +98,8 @@ module.exports = function(src,method,getData,postData,request,response,wwwDir){
 			fs.readFile(wwwDir+filename, function(err, content){
 				if(err) {
 					response.writeHead(404, { 'Content-Type':'text/plain; charset="UTF-8"' });
-					response.write(err.message);
+					//response.write(err.message);
+					response.write("404");
 					response.end();
 				} else {
 					response.writeHead(200, { 'Content-Type' : type });
