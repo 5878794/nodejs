@@ -1,0 +1,19 @@
+{
+  "description":"狮子头的应用",
+  "repository":{},
+  "readme":"nothing",
+  "Author":{
+      "name":"bens",
+      "email":"5878794@qq.com",
+      "url":""
+  },
+  "license":"BSD-3-Clause",
+  "dependencies":{
+      "md5":"",
+      "mysql":"",
+      "fs":"",
+      "http":"",
+      "url":"",
+      "querystring":""
+  }
+}
