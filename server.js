@@ -17,9 +17,10 @@ function spawn(server) {
 		if (code !== 0) {
 
 			console.log('---------------worker is shut down, restarting...---------');
-			spawn(server);//重启服务
+			//重启服务
+			spawn(server);
 
-		};
+		}
 
 	});
 
@@ -29,11 +30,12 @@ function spawn(server) {
 		console.log(msg);
 
 	});
-};
+}
 
 function main() {
 
-	spawn('/Users/beens/code/github/nodejs/server/app.js'); //要守护的进程文件
+	//要守护的进程文件
+	spawn('/Users/beens/code/github/nodejs/server/app.js');
 
 	process.on('SIGTERM', function () {
 
@@ -41,6 +43,6 @@ function main() {
 		process.exit(0);
 
 	});
-};
+}
 
 main();

@@ -14,6 +14,7 @@
       "fs":"",
       "http":"",
       "url":"",
-      "querystring":""
+      "querystring":"",
+      "child_process":""
   }
 }
