@@ -6,7 +6,7 @@
 var http = require('http'),        // Http服务器API
 	rout = require("./rout"),
 	url = require('url'),
-	setting = require("../setting");
+	setting = require("./setting");
 
 
 var server = new http.Server(),    // 创建新的HTTP服务器

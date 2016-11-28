@@ -2,7 +2,7 @@
  * Created by beens on 16/11/28.
  */
 
-var setting = require("../../setting"),
+var setting = require("../setting"),
     fs = require("fs");
 
 
