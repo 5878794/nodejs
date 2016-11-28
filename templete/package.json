@@ -1,0 +1,14 @@
+{
+  "description":"templete",
+  "repository":{},
+  "readme":"nothing",
+  "Author":{
+      "name":"bens",
+      "email":"5878794@qq.com",
+      "url":""
+  },
+  "license":"BSD-3-Clause",
+  "dependencies":{
+      "fs":""
+  }
+}
