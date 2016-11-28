@@ -1,5 +1,6 @@
 /**
  * Created by beens on 16/11/28.
+ * 404页面处理
  */
 
 var setting = require("../setting"),

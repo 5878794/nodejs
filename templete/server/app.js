@@ -1,6 +1,5 @@
-// 这是一个简单的Node HTTP服务器,能处理当前目录的文件
-// 并能实现两种特殊的URL用于测试
-// 用HTTP://localhost:8000或http://127.0.0.1:8000连接这个服务器
+
+
 
 // 首先加载所有需要用到的模块
 var http = require('http'),        // Http服务器API

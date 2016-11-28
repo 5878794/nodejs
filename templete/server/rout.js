@@ -67,49 +67,5 @@ module.exports = function(src,method,getData,postData,request,response,wwwDir){
 	responseStaticResources(url,type,response);
 
 
-    //
-	//// 特殊URL会让服务器在发送响应前先等待
-	//switch(src.pathname) {
-    //
-	//	case '/api':
-	//		console.log("api test");
-	//		//memberList(method,postData,getData,response);
-	//		break;
-    //
-    //
-    //
-    //
-    //
-	//	default:// 处理来自本地目录的文件
-	//			// 去掉前面的'/'
-	//		var filePath = src.pathname.substring(1),
-	//			//获取请求的文件名
-	//			fileName = filePath.substr(filePath.lastIndexOf("/")+1),
-	//			//判断是否有文件的后缀名
-	//			hasType = (fileName.lastIndexOf(".") != -1),
-	//			//获取文件后缀名
-	//			type = fileName.substring(fileName.lastIndexOf(".")+1),
-	//			//请求的完整地址
-	//			url = "",
-	//			//请求地址最后是否需要添加 /
-	//			lastHasG = (filePath.lastIndexOf("/") == filePath.length - 1)? "" : "/";
-    //
-	//		if(!hasType){
-	//			//无文件后缀名的，自动修正到index.html
-	//			url = wwwDir + filePath + lastHasG + "index.html";
-	//		}else{
-	//			//有文件后缀名的
-	//			url = wwwDir + filePath;
-	//		}
-    //
-	//		//获取返回时的type
-	//		type = (hasType)? type : "html";
-	//		type = getFileType(type);
-    //
-    //
-	//		//返回资源
-	//		responseStaticResources(url,type,response);
-	//		break;
-	//}
 };
 

@@ -1,5 +1,6 @@
 /**
  * Created by beens on 16/11/28.
+ * json报文返回的格式
  */
 
 
