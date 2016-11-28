@@ -28,11 +28,26 @@ module.exports = function(endTag){
 		case 'css' :
 			type = 'text/css; charset="UTF-8"';
 			break;
+		case 'jpg' :
+			type = 'image/jpeg; charset="UTF-8"';
+			break;
+		case 'png' :
+			type = 'image/png; charset="UTF-8"';
+			break;
+		case 'pdf' :
+			type = 'application/pdf; charset="UTF-8"';
+			break;
+		case 'mp3':
+			type = 'audio/mpeg;charset="UTF-8"';
+			break;
 		case 'txt' :
 			type = 'text/plain; charset="UTF-8"';
 			break;
 		case 'manifest' :
 			type = 'text/cache-manifest; charset="UTF-8"';
+			break;
+		case 'zip' :
+			type = 'application/zip;charset="UTF-8"';
 			break;
 		default :
 			type = 'application/octet-stream';
