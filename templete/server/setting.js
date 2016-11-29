@@ -13,5 +13,8 @@ module.exports = {
         password: 'xf771026aa',
         database:'chenhong',
         port: 3306
+    },
+    sqlite:{
+        url:"/Users/beens/code/github/nodejs/templete/server/sqlite/database/test.sqlite3"
     }
 };
