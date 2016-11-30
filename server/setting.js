@@ -3,7 +3,7 @@
  */
 
 
-var wwwDir = "/Users/beens/code/github/nodejs/templete/www/";
+var wwwDir = "/Users/beens/code/github/nodejs/www/";
 
 module.exports = {
     wwwDir:wwwDir,
@@ -17,7 +17,7 @@ module.exports = {
         port: 3306
     },
     sqlite:{
-        url:"/Users/beens/code/github/nodejs/templete/server/sqlite/database/test.sqlite3"
+        url:"/Users/beens/code/github/nodejs/server/sqlite/database/test.sqlite3"
     },
     fileUpload:{
         saveUrl:wwwDir+"upload/",
