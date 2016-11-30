@@ -14,30 +14,76 @@
 var fs = require('fs'),            // 用于处理本地文件
 	getFileType = require("./response/getFileType"),
 	responseStaticResources = require("./response/staticResources"),
-	api = require("./api/__api_list");
+	api = require("./api/__api_list"),
+	url = require('url'),
+	saveFile = require("./fileUpload/save"),
+	setting = require("./setting"),
+	back404 = require("./response/json");
+
+var wwwDir = setting.wwwDir;
 
 
-//var text = require("./api/test");
-//var login = require("./api/login");
-//var memberList = require("./api/memberList");
 
+var getRequestData = function(request,callback){
+	var postData = "",
+		getData = url.parse(request.url, true).query;
 
+	//获取提交的报文
+	request.on('data', function (data) {
+		postData += data;
+	});
+	request.on('end', function () {
+		postData = url.parse("?" + postData,true).query;
+		try{
+			postData = JSON.parse(postData);
+		}catch(e){
 
-module.exports = function(src,method,getData,postData,request,response,wwwDir){
-	//判断是否是请求的接口
-	if(src.pathname.indexOf("/api/") > -1){
-		//获取接口名
-		var apiName = src.pathname.substr(src.pathname.lastIndexOf("/api/")+5);
-		//接口存在调用接口
-		if(api[apiName]){
-			api[apiName](method,getData,postData,response);
-			return;
 		}
+		callback(getData,postData);
+	});
+};
+
+
+
+module.exports = function(request,response){
+	var src = url.parse(request.url),   //当前请求的地址，不含前缀
+		method = request.method,
+		pathName = src.pathname,
+		dirName = pathName.match(/^\/[a-zA-Z0-9_-]*\//) || [];
+	dirName = dirName[0] || "";
+	dirName = dirName.substr(1, dirName.length-2);
+
+
+	//-----------------------------------------
+	//文件上传
+	if(dirName.toLowerCase() == "upload" && method.toLowerCase() == "post"){
+		saveFile(request,response);
+		return;
 	}
 
 
+	//-----------------------------------------
+	//api接口   只支持一层的名字解析
+	if(dirName.toLowerCase() == "api"){
+		//获取接口名
+		var apiName = pathName.substr(5);
+		//接口存在调用接口
+		if(api[apiName]){
+			getRequestData(
+				request,
+				function(getData,postData){
+					api[apiName](method,getData,postData,request,response);
+				}
+			);
+		}else{
+			back404("error","接口不存在！",response);
+		}
+		return;
+	}
 
-		// 去掉前面的'/'
+
+	//-----------------------------------------
+	//其他静态资源
 	var filePath = src.pathname.substring(1),
 		//获取请求的文件名
 		fileName = filePath.substr(filePath.lastIndexOf("/")+1),
@@ -46,16 +92,16 @@ module.exports = function(src,method,getData,postData,request,response,wwwDir){
 		//获取文件后缀名
 		type = fileName.substring(fileName.lastIndexOf(".")+1),
 		//请求的完整地址
-		url = "",
+		_url = "",
 		//请求地址最后是否需要添加 /
 		lastHasG = (filePath.lastIndexOf("/") == filePath.length - 1)? "" : "/";
 
 	if(!hasType){
 		//无文件后缀名的，自动修正到index.html
-		url = wwwDir + filePath + lastHasG + "index.html";
+		_url = wwwDir + filePath + lastHasG + "index.html";
 	}else{
 		//有文件后缀名的
-		url = wwwDir + filePath;
+		_url = wwwDir + filePath;
 	}
 
 	//获取返回时的type
@@ -64,8 +110,6 @@ module.exports = function(src,method,getData,postData,request,response,wwwDir){
 
 
 	//返回资源
-	responseStaticResources(url,type,response);
-
+	responseStaticResources(_url,type,response);
 
 };
-

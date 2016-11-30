@@ -5,7 +5,7 @@
 
 var back = require("../response/json");
 
-module.exports = function(method,getData,postData,response){
+module.exports = function(method,getData,postData,request,response){
     //处理过程
 
     var msg = "参数错误";

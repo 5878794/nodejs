@@ -10,7 +10,8 @@
   "dependencies": {
     "fs": "",
     "sqlite3": "",
-    "mysql": ""
+    "mysql": "",
+    "formidable":""
   },
   "scripts": {
     "start": "node server.js"

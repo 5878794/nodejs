@@ -6,8 +6,9 @@
 var back = require("../response/json");
 
 
-module.exports = function(method,getData,postData,response){
+module.exports = function(method,getData,postData,request,response){
     //处理过程
+
 
     var data = {
         a:1,

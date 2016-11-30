@@ -15,7 +15,10 @@ module.exports = function(htmlFileUrl,type,response){
         if(err) {
             pageNotFond(response);
         } else {
-            response.writeHead(200, { 'Content-Type' : type });
+            response.writeHead(200, {
+                'Content-Type' : type,
+                'Access-Control-Allow-Origin': '*'   //可跨域访问
+            });
             response.write(content);
             response.end();
         }
