@@ -11,7 +11,8 @@
     "fs": "",
     "sqlite3": "",
     "mysql": "",
-    "formidable":""
+    "formidable":"",
+    "socket.io":""
   },
   "scripts": {
     "start": "node server.js"
