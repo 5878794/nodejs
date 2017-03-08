@@ -3,7 +3,8 @@
 
 var http = require('http'),        // Http服务器API
 	rout = require("./rout"),
-	setting = require("./setting");
+	setting = require("./setting"),
+	serverSet = require("./getServerIP");
 
 
 var server = new http.Server(),    // 创建新的HTTP服务器
@@ -20,4 +21,4 @@ server.on('request', function(request, response) { // 当有request请求的时�
 
 
 
-console.log("server start on "+port+" port");
+console.log("server start on "+serverSet().ip+":"+port+" port");
